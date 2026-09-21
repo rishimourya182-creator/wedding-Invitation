@@ -334,18 +334,11 @@
   <!-- Floating Audio Toggle Button -->
   <button id="audio-control" onclick="toggleAudio()" title="Toggle Song">🎵</button>
   
-  <!-- Direct Audio Stream -->
-  <<audio id="weddingMusic" loop>
-  <source src="https://drive.google.com/uc?export=download&id=19dEaR9R3_ZUFzTsNRz_kl4MeURrBhvG2" type="audio/mpeg">
-</audio>
+  <!-- Direct Audio Stream from Google Drive Link -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="https://docs.google.com/uc?export=download&id=19dEaR9R3_ZUFzTsNRz_kl4MeURrBhvG2" type="audio/mpeg">
+  </audio>
 
-<script>
-  const music = document.getElementById("weddingMusic");
-
-  document.addEventListener("click", () => {
-    music.play().catch(() => {});
-  }, { once: true });
-</script>
   <!-- Envelope Overlay -->
   <div id="overlay">
     <div class="envelope" onclick="openInvite()">
@@ -461,6 +454,7 @@
         audioBtn.style.display = "flex";
       }, 800);
 
+      // Play audio on opening envelope
       music.play().then(function() {
         isPlaying = true;
         audioBtn.innerText = "🎵";
